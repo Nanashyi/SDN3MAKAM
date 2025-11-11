@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Visi & Misi — SD Negeri 1 Makam</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange_sd: '#FF8A3D',
+            pastel_yellow: '#FFF6D6',
+            light_green: '#CFF7D9',
+            sd_text: '#263238'
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            'soft-md': '0 6px 18px rgba(34,34,34,0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-white text-sd_text">
+  <!-- ===== NAVBAR ===== -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange_sd to-pastel_yellow flex items-center justify-center shadow-soft-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 5-8 5-8-5 8-5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v11" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 13v6h10v-6" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-semibold">SD Negeri 1 Makam</div>
+            <div class="text-xs text-slate-500 -mt-0.5">Belajar Ceria, Tumbuh Bersama</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="text-sm hover:text-orange_sd transition">Home</a>
+          <a href="profile.html" class="text-sm hover:text-orange_sd transition">Profil</a>
+          <a href="vision-mission.html" class="text-sm font-semibold text-orange_sd">Visi & Misi</a>
+          <a href="struktur-organisasi.html" class="text-sm hover:text-orange_sd transition">Struktur</a>
+          <a href="konstruksi.html" class="text-sm hover:text-orange_sd transition">Fasilitas</a>
+          <a href="gallery.html" class="text-sm hover:text-orange_sd transition">Galeri</a>
+          <a href="berita.html" class="text-sm hover:text-orange_sd transition">Berita</a>
+          <a href="ppdb.html" class="text-sm font-semibold px-4 py-2 rounded-md bg-orange_sd text-white hover:opacity-95 transition">PPDB</a>
+        </nav>
+
+        <!-- Hamburger -->
+        <div class="md:hidden">
+          <button id="btnHamburger" aria-label="Open menu" class="p-2 rounded-md border border-slate-200">
+            <svg id="iconHamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sd_text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
+      <div class="px-4 pt-4 pb-6 space-y-3">
+        <a href="index.html" class="block text-sd_text">Home</a>
+        <a href="profile.html" class="block text-sd_text">Profil</a>
+        <a href="vision-mission.html" class="block font-semibold text-orange_sd">Visi & Misi</a>
+        <a href="struktur-organisasi.html" class="block text-sd_text">Struktur</a>
+        <a href="konstruksi.html" class="block text-sd_text">Fasilitas</a>
+        <a href="gallery.html" class="block text-sd_text">Galeri</a>
+        <a href="berita.html" class="block text-sd_text">Berita</a>
+        <a href="ppdb.html" class="block mt-2 w-full text-center font-semibold px-4 py-2 rounded-md bg-orange_sd text-white">PPDB</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO / BANNER ===== -->
+  <section class="relative bg-gradient-to-r from-pastel_yellow to-light_green py-20 overflow-hidden text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-sd_text mb-3">Visi & Misi Sekolah</h1>
+      <p class="text-slate-700 max-w-2xl mx-auto">Panduan utama kami dalam membentuk siswa yang berkarakter, berilmu, dan berbudaya.</p>
+    </div>
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -bottom-10 right-0 w-56 h-56 bg-orange_sd opacity-20 rounded-full blur-3xl"></div>
+      <div class="absolute top-0 left-0 w-64 h-64 bg-light_green opacity-30 rounded-full blur-3xl"></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+      
+      <!-- Vision -->
+      <section class="text-center">
+        <h2 class="text-2xl font-bold mb-4">Visi</h2>
+        <p class="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
+          “Mewujudkan peserta didik yang beriman, berakhlak mulia, berilmu, kreatif, peduli lingkungan, dan berprestasi.”
+        </p>
+      </section>
+
+      <!-- Mission -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-center">Misi</h2>
+        <div class="bg-pastel_yellow/60 rounded-2xl shadow-soft-md p-6 sm:p-10">
+          <ul class="list-decimal list-inside space-y-3 text-slate-700 leading-relaxed">
+            <li>Menanamkan keimanan dan ketakwaan melalui pembiasaan ibadah dan sikap jujur.</li>
+            <li>Mengembangkan proses pembelajaran yang aktif, kreatif, dan menyenangkan.</li>
+            <li>Menumbuhkan karakter disiplin, tanggung jawab, dan peduli sesama.</li>
+            <li>Mendorong siswa untuk berprestasi dalam bidang akademik maupun non-akademik.</li>
+            <li>Meningkatkan kesadaran menjaga kebersihan dan kelestarian lingkungan sekolah.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Motto -->
+      <section class="text-center">
+        <h2 class="text-2xl font-bold mb-4">Motto Sekolah</h2>
+        <p class="text-orange_sd text-lg font-semibold">“Belajar Ceria, Tumbuh Bersama”</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-slate-50 border-t mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-semibold">SD Negeri 1 Makam</h4>
+        <p class="text-sm text-slate-600 mt-2">Jl. Merdeka No.1 — Kecamatan Makam<br>Telp: (021) 123-4567</p>
+      </div>
+
+      <div>
+        <h5 class="font-medium">Navigasi</h5>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li><a href="index.html" class="hover:text-orange_sd">Home</a></li>
+          <li><a href="profile.html" class="hover:text-orange_sd">Profil</a></li>
+          <li><a href="vision-mission.html" class="hover:text-orange_sd">Visi & Misi</a></li>
+          <li><a href="ppdb.html" class="hover:text-orange_sd">PPDB</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-medium">Kontak & Sosial</h5>
+        <p class="text-sm text-slate-600 mt-2">Email: sdnegeri1makam@example.sch.id</p>
+        <div class="flex gap-3 mt-3">
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">Facebook</a>
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">Instagram</a>
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 text-sm text-slate-500 text-center">
+        © <span id="year"></span> SD Negeri 1 Makam — Semua hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('btnHamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconHamburger = document.getElementById('iconHamburger');
+    btn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+        iconHamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        iconHamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>';
+      }
+    });
+  </script>
+</body>
+</html>

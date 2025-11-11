@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeri - SD Negeri 1 Makam</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS + Custom Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange_sd: '#FF8A3D',
+            pastel_yellow: '#FFF6D6',
+            light_green: '#CFF7D9',
+            sd_text: '#263238'
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            'soft-md': '0 6px 18px rgba(34,34,34,0.08)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', system-ui, sans-serif; }
+    .gallery-img:hover { transform: scale(1.05); }
+    .gallery-img { transition: transform 0.4s ease; cursor: pointer; }
+    .lightbox {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+      justify-content: center; align-items: center; z-index: 50;
+    }
+    .lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
+  </style>
+</head>
+<body class="bg-white text-sd_text antialiased">
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange_sd to-pastel_yellow flex items-center justify-center shadow-soft-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 5-8 5-8-5 8-5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v11" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 13v6h10v-6" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-semibold">SD Negeri 1 Makam</div>
+            <div class="text-xs text-slate-500 -mt-0.5">Belajar Ceria, Tumbuh Bersama</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="text-sm hover:text-orange_sd transition">Home</a>
+          <a href="profile.html" class="text-sm hover:text-orange_sd transition">Profil</a>
+          <a href="vision-mission.html" class="text-sm hover:text-orange_sd transition">Visi & Misi</a>
+          <a href="struktur-organisasi.html" class="text-sm hover:text-orange_sd transition">Struktur</a>
+          <a href="konstruksi.html" class="text-sm hover:text-orange_sd transition">Fasilitas</a>
+          <a href="gallery.html" class="text-sm font-semibold text-orange_sd">Galeri</a>
+          <a href="berita.html" class="text-sm hover:text-orange_sd transition">Berita</a>
+          <a href="ppdb.html" class="text-sm font-semibold px-4 py-2 rounded-md bg-orange_sd text-white hover:opacity-95 transition">PPDB</a>
+        </nav>
+
+        <!-- Hamburger -->
+        <div class="md:hidden">
+          <button id="btnHamburger" aria-label="Open menu" class="p-2 rounded-md border border-slate-200">
+            <svg id="iconHamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sd_text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
+      <div class="px-4 pt-4 pb-6 space-y-3">
+        <a href="index.html" class="block">Home</a>
+        <a href="profile.html" class="block">Profil</a>
+        <a href="vision-mission.html" class="block">Visi & Misi</a>
+        <a href="struktur-organisasi.html" class="block">Struktur</a>
+        <a href="konstruksi.html" class="block">Fasilitas</a>
+        <a href="gallery.html" class="block font-semibold text-orange_sd">Galeri</a>
+        <a href="berita.html" class="block">Berita</a>
+        <a href="ppdb.html" class="block mt-2 text-center px-4 py-2 rounded-md bg-orange_sd text-white">PPDB</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="bg-gradient-to-r from-pastel_yellow to-light_green py-20 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold text-sd_text">Galeri Sekolah</h1>
+    <p class="mt-3 text-slate-700 max-w-2xl mx-auto">Kumpulan foto kegiatan, prestasi, dan momen berharga di SD Negeri 1 Makam.</p>
+  </section>
+
+  <!-- ===== GALLERY GRID ===== -->
+  <main class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Example images (replace with school activity photos) -->
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f6a2a4b0?q=80&w=800" alt="Upacara Bendera" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1559078909-2a8b95b9b6a8?q=80&w=800" alt="Kegiatan Kelas" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1587019157763-9b7f9f2a0b6a?q=80&w=800" alt="Lomba Sekolah" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1596496051270-9e0b7a221ad9?q=80&w=800" alt="Belajar Bersama" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800" alt="Senam Pagi" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1528747045269-390fe33c19bb?q=80&w=800" alt="Kegiatan Gotong Royong" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800" alt="Pertandingan Olahraga" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+        <img src="https://images.unsplash.com/photo-1589758438368-1f9d1f0f6e4c?q=80&w=800" alt="Kegiatan Lingkungan" class="gallery-img w-full h-56 object-cover rounded-xl shadow-soft-md">
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightboxImage" src="" alt="preview">
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-slate-50 border-t mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-semibold">SD Negeri 1 Makam</h4>
+        <p class="text-sm text-slate-600 mt-2">Jl. Merdeka No.1 — Kecamatan Makam<br>Telp: (021) 123-4567</p>
+      </div>
+      <div>
+        <h5 class="font-medium">Navigasi</h5>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li><a href="index.html" class="hover:text-orange_sd">Home</a></li>
+          <li><a href="profile.html" class="hover:text-orange_sd">Profil</a></li>
+          <li><a href="vision-mission.html" class="hover:text-orange_sd">Visi & Misi</a></li>
+          <li><a href="ppdb.html" class="hover:text-orange_sd">PPDB</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-medium">Kontak & Sosial</h5>
+        <p class="text-sm text-slate-600 mt-2">Email: sdnegeri1makam@example.sch.id</p>
+        <div class="flex gap-3 mt-3">
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">Facebook</a>
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">Instagram</a>
+          <a href="#" class="text-slate-500 text-sm hover:text-orange_sd">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 text-sm text-slate-500 text-center">
+        © <span id="year"></span> SD Negeri 1 Makam — Semua hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const btn = document.getElementById('btnHamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconHamburger = document.getElementById('iconHamburger');
+    btn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+        iconHamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        iconHamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>';
+      }
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImage.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
